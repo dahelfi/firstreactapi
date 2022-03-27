@@ -1,30 +1,47 @@
 import React, { Component } from 'react'
-
+import './styles/app.scss'
+import PokemonOverview from './components/PokemonOverview';
 
 export default class App extends Component {
 
+
+
   constructor(props){
     super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    }
+  
+
+    
   }
+  render() {
 
-  componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(json =>{
-      console.log(json);
 
-    });
+
+    return(
+
+      <div>
+         <PokemonOverview/>
+        <div className="background">
+       
+
+        </div>
+
+      </div>
+    
+
+    )
+}
+
+
+
+}
+
+
+
+    
+   
+
 
   
-  }
+   
 
-  render() {
-    return (
-      <div>App</div>
-    )
-  }
-}
+
