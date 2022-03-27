@@ -16,7 +16,7 @@ export default class pokemonElement extends Component {
 
 
     {
-        console.log("hier dein array: ",this.props.element.types);
+        
         if(this.props.element['types'][0]['type']['name'] == "grass"){
             backgroundStyles.backgroundColor = 'rgb(25,170,37)'
         }else if (this.props.element['types'][0]['type']['name'] == "fire"){

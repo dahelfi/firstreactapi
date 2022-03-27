@@ -7,52 +7,36 @@ export default class pokemonOverview extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-          items: [],
-          isLoaded: false,
-        }
+      
     
         
       }
-    
-      async componentDidMount(){
-    
-        for (let i = 1; i < 100; i++) {
-          
-        let url = 'https://pokeapi.co/api/v2/pokemon/'+i;
-        let response = await fetch(url);
-        let element = await response.json();
-    
-        let items = [...this.state.items];
-    
-        items.push(element);
-    
-        this.setState({
-          items: items,
-        
-        });
-    
-        }
 
-        
-       
+      showElement(id){
+        console.log("show element wird ausgeführt");
+        this.props.showElement(id);
       }
+ 
     
       render() {
-        let items = this.state.items;
-        //let loaded = this.state.isLoaded;
-        let testItem = this.state.items[0];
-        console.log("hier dein testitem: ", testItem);
+        let items = this.props.items;
+        let styles = {
+            display: this.props.showAndHide ? "none" : "flex"
+        }
+
     
     
           return(
-            <div className='overview-background'>
+            <div className='overview-background' style={styles}>
                
                 { <ul>
                     {items.map(item =>(
-                      <li key={item.id}>
-                          <PokemonElement element={item}/>
-    
+                      <li key={item.id} > 
+                        <div onClick={()=>this.showElement(item.id)}>
+                            <PokemonElement element={item}/>
+                        </div>
+                        
+                       
                       </li>
                     
                   
