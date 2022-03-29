@@ -15,7 +15,7 @@ export default class MovesInfo extends Component {
 
     componentDidMount(){
 
-        console.log("ich werde ausgeführt");
+       
         let currentPokemon = this.props.currentPokemon;
         let movesLengthCounter = 0;
         let moveValues = [];
@@ -27,12 +27,12 @@ export default class MovesInfo extends Component {
 
         for (let i = 0; i < movesLengthCounter; i++) {
             let element = currentPokemon.moves[i].move.name;
-            console.log("hier das element: ", element);
+    
             moveValues.push(element);
         
         }
 
-        console.log("hier das andere Array: ", moveValues)
+  
         this.setState({
             moveValues: moveValues
         })
@@ -47,8 +47,8 @@ export default class MovesInfo extends Component {
       let styles={
           display: (this.props.showOrHide ? "flex" : "none")
       }
-      let testArray = this.state.moveValues;
-      console.log("hier das testarray: ", testArray);
+
+
 
      
     return (

@@ -21,7 +21,7 @@ export default class PokemonCard extends Component {
 
     showOrHide(category){
 
-        console.log("das hier wird angeklickt: ", category);
+  
         let enable = true;
         let disable = false;
 
@@ -48,6 +48,15 @@ export default class PokemonCard extends Component {
 
         }
         
+    }
+
+
+    retreatToOverview(){
+        this.props.retreatOverview();
+    }
+
+    stopPropagation(event){
+        event.stopPropagation();
     }
 
 
@@ -102,9 +111,9 @@ export default class PokemonCard extends Component {
   
       }
       return (
-          <div className='pokemon-card-background' style={displayManagement}>
+          <div className='pokemon-card-background' style={displayManagement} onClick={()=> this.retreatToOverview()}>
   
-              <div className='pokemon-card'>
+              <div className='pokemon-card' onClick={(event)=>this.stopPropagation(event)}>
                   <div className='pokemon-card-top-section' style={backgroundStyles}>
                       <h1>{currentPokemon.species.name}</h1>
                     

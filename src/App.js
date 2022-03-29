@@ -14,13 +14,14 @@ export default class App extends Component {
       items: [],
     }
     this.showPokemonCard = this.showPokemonCard.bind(this);
+    this.retreatToOverview = this.retreatToOverview.bind(this);
     
   }
 
      
   async componentDidMount(){
     
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 20; i++) {
       
     let url = 'https://pokeapi.co/api/v2/pokemon/'+i;
     let response = await fetch(url);
@@ -39,6 +40,16 @@ export default class App extends Component {
 
     
    
+  }
+
+
+
+  retreatToOverview(){
+    let testBoolean = false;
+    this.setState({
+      showPokemonCard: testBoolean
+    })
+
   }
 
   showPokemonCard(id){
@@ -64,20 +75,13 @@ export default class App extends Component {
 
 
   render() {
-  
-    console.log("hier dein boolean: ", this.state.showPokemonCard);
-   
-
     return(
 
       <div>
-         <PokemonOverview showAndHide={this.state.showPokemonCard} showElement={this.showPokemonCard} items={this.state.items}  style={{ display: "none"}}/>
-         <PokemonCard showAndHide={this.state.showPokemonCard} currentPokemon={this.state.currentPokemon} />
+         <PokemonOverview showAndHide={this.state.showPokemonCard} showElement={this.showPokemonCard} items={this.state.items}/>
+         <PokemonCard showAndHide={this.state.showPokemonCard} retreatOverview={this.retreatToOverview} currentPokemon={this.state.currentPokemon} />
         <div className="background"/>
- 
-
-
-      </div>
+        </div>
     
 
     )

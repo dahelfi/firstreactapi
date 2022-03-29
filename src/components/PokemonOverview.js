@@ -13,7 +13,7 @@ export default class pokemonOverview extends Component {
       }
 
       showElement(id){
-        console.log("show element wird ausgeführt");
+       
         this.props.showElement(id);
       }
  
